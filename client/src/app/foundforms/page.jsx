@@ -7,7 +7,7 @@ const LostForm = () => {
   const [phone, setPhone] = useState("");
   const [rollno, setRollno] = useState("");
   const [location, setLocation] = useState("");
-  const [ldate, setDate] = useState("");
+  const [fdate, setDate] = useState("");
   const [itemtype, setItemtype] = useState("");
   const [itemdescription, setItemdescription] = useState("");
 
@@ -49,7 +49,7 @@ const LostForm = () => {
 
   return (
     <main className="min-h-screen flex items-center justify-center">
-      <div className="p-8 bg-white rounded-xl shadow-md w-full max-w-sm md:max-w-md lg:max-w-md xl:max-w-md transform transition-transform duration-500">
+      <div className="p-8 bg-white rounded-xl mt-6 mb-6 shadow-md w-full max-w-sm md:max-w-md lg:max-w-md xl:max-w-md transform transition-transform duration-500">
         <div className="mb-10 text-center text-4xl text-purple-600">
           FOUND ITEMS FORMS
         </div>
@@ -94,11 +94,11 @@ const LostForm = () => {
           </p>
           <p>
             <label htmlFor="text" className="p-1">
-              Location Last Seen
+              Location Where Found
             </label>
             <input
               type="text"
-              value={phone}
+              value={location}
               onChange={(e) => setLocation(e.target.value)}
               placeholder="Enter the Location Last Seen"
               className="w-full px-3 py-2 border border-purple-500 rounded-lg focus:outline-none focus:border-purple-700 my-2"
@@ -107,10 +107,10 @@ const LostForm = () => {
           </p>
           <p>
             <label htmlFor="text" className="p-1">
-              Date when Lost
+              Date when Found
             </label>
             <input
-              value={ldate}
+              value={fdate}
               onChange={(e) => setDate(e.target.value)}
               className="w-full px-3 py-2 border border-purple-500 rounded-lg focus:outline-none focus:border-purple-700 my-2"
               inputMode="numeric"
@@ -148,7 +148,7 @@ const LostForm = () => {
           </div>
           <p>
             <label htmlFor="text" className="p-1">
-              Lost Item Photo
+              Found Item Photo
             </label>
             <input
               type="file"

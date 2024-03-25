@@ -11,12 +11,13 @@ const LostForm = () => {
   const [itemtype, setItemtype] = useState("");
   const [itemdescription, setItemdescription] = useState("");
   const [file, setFile] = useState(null);
-
   const [message, setMessage] = useState("");
 
   const handleFileChange = (selectedFile) => {
     setFile(selectedFile);
   };
+  
+
   
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -86,6 +87,7 @@ const LostForm = () => {
 
   return (
     <main className="min-h-screen flex items-center justify-center">
+      
       <div className="p-8 bg-white rounded-xl mt-6 mb-6 shadow-md w-full max-w-sm md:max-w-md lg:max-w-md xl:max-w-md transform transition-transform duration-500">
         <div className="mb-10 text-center text-4xl text-purple-600">
           LOST ITEMS FORMS
