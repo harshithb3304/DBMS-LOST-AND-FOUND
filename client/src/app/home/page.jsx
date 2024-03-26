@@ -40,7 +40,7 @@ const page = () => {
           </div>
         )}
         {showSecondText && (
-          <div className="falling-texts space-y-4 text-4xl text-purple-400 font-bold">
+          <div className="falling-texts space-y-4 text-4xl text-indigo-400 font-bold">
             <div className="falling-text2 text-4xl md:text-5xl lg:text-7xl p-1 my-4">
               <div className="text-center">DONT WORRY</div>
               <div className="text-center">
@@ -53,7 +53,7 @@ const page = () => {
           <div className="falling-texts space-y-4 text-4xl text-purple-400 font-bold">
             <div className="falling-text2 text-2xl md:text-4xl lg:text-5xl p-1 my-4">
               <Link href="/lostforms">
-                <div className="text-white hover:text-purple-700 text-center">
+                <div className="text-white hover:text-indigo-500 text-center">
                   Want to report something LOST? Click here
                 </div>
               </Link>
@@ -64,7 +64,7 @@ const page = () => {
           <div className="falling-texts space-y-4 text-4xl text-purple-400 font-bold">
             <div className="falling-text2 text-2xl md:text-4xl lg:text-5xl p-1 my-4">
               <Link href="/foundforms">
-                <div className="text-white hover:text-purple-700 text-center">
+                <div className="text-white hover:text-indigo-500 text-center">
                   Want to report something FOUND? Click here
                 </div>
               </Link>

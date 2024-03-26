@@ -38,7 +38,7 @@ body {
   overflow: auto;
   background: rgb(10, 31, 41);
   background: rgb(9,50,59);
-  background: linear-gradient(45deg, rgb(8, 21, 42) 38.5%, rgb(18, 117, 148) 40.5%, rgb(8, 21, 42) 43%);
+  background: linear-gradient(45deg, rgb(8, 21, 42) 38.5%, rgb(11, 80, 100) 40.5%, rgb(8, 21, 42) 43%);
   animation: gradient 8s ease infinite;
   background-size: 401% 400%;
   background-attachment: fixed;
