@@ -166,7 +166,7 @@ const LoginPage = () => {
         </form>
         <div className="flex justify-center item-center">{message}</div>
         <Link href={"/"}>
-          <div className="flex justify-center items-center hover:text-indigo-500 font-bold">Return to HomePage</div>
+          <div className="flex justify-center items-center hover:text-indigo-500 font-medium text-xl">Return to HomePage</div>
         </Link>
          {message === "User registered successfully" && (
           <Link href="/login">

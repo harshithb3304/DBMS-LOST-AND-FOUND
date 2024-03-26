@@ -173,13 +173,13 @@ const LostForm = () => {
         </form>
         <Link href={"/"}>
           <div className="flex justify-center item-center font-medium text-xl hover:text-indigo-600">
-            Return to Homepage
+            Return to HomePage
           </div>
         </Link>
         <div className="flex justify-center item-center">{message}</div>
         {message === "Item registered successfully" && (
           <Link href="/login">
-            <div className="flex justify-center item-center hover:text-purple-700">
+            <div className="flex justify-center item-center hover:text-indigo-700">
               Click to Login
             </div>
           </Link>

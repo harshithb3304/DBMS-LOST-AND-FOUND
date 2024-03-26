@@ -1,37 +1,35 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 
-const LostForm = () => {
-  const [email, setEmail] = useState("");
-  const [phone, setPhone] = useState("");
-  const [rollno, setRollno] = useState("");
-  const [location, setLocation] = useState("");
-  const [fdate, setDate] = useState("");
-  const [itemtype, setItemtype] = useState("");
-  const [itemdescription, setItemdescription] = useState("");
-
+const LoginPage = () => {
+  const [rollno, setUsername] = useState("");
+  const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
+  const [loaded, setLoaded] = useState(false);
+
+  useEffect(() => {
+    // Simulate loading with a delay
+    const timeout = setTimeout(() => {
+      setLoaded(true);
+    }, 500);
+
+    return () => clearTimeout(timeout);
+  }, []);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
 
     try {
-      const response = await fetch("http://127.0.0.1:8080/api/register1", {
+      const response = await fetch("http://127.0.0.1:8080/api/register", {
         method: "POST",
         headers: {
           "Content-Type": "application/x-www-form-urlencoded", // Ensure correct content type
         },
         body: new URLSearchParams({
           // Convert form data to URLSearchParams format
-          username: username,
+          rollno: rollno,
           password: password,
-          fname: fname,
-          mname: mname,
-          lname: lname,
-          email: email,
-          roll_no: rollno,
-          phone_no: phone,
         }),
       });
 
@@ -48,11 +46,13 @@ const LostForm = () => {
   };
 
   return (
-    <main className="min-h-screen flex items-center justify-center">
-      <div className="p-8 bg-white rounded-xl mt-6 mb-6 shadow-md w-full max-w-sm md:max-w-md lg:max-w-md xl:max-w-md transform transition-transform duration-500">
-        <div className="mb-10 text-center text-4xl text-indigo-600">
-          LOST ITEMS FORMS
-        </div>
+    <main
+      className={`min-h-screen flex items-center justify-center ${
+        loaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+      }`}
+    >
+      <div className="p-8 bg-white rounded-xl shadow-md w-full max-w-sm md:max-w-md lg:max-w-md xl:max-w-md transform transition-transform duration-500">
+        <div className="mb-10 text-center text-4xl text-indigo-800">LOGIN</div>
         <form onSubmit={handleSubmit}>
           <p>
             <label htmlFor="text" className="p-1">
@@ -61,127 +61,39 @@ const LostForm = () => {
             <input
               type="text"
               value={rollno}
-              onChange={(e) => setRollno(e.target.value)}
-              placeholder="Enter your First Name"
-              className="w-full px-3 py-2 border-2 border-indigo-500 rounded-lg focus:outline-none focus:border-purple-700 my-2"
-              required
+              onChange={(e) => setUsername(e.target.value)}
+              placeholder="Enter your username"
+              className="w-full p-3 border-2 border-indigo-500 rounded-lg focus:outline-none focus:border-indigo-800 my-2"
             />
           </p>
           <p>
             <label htmlFor="text" className="p-1">
-              E-Mail
+              Password
             </label>
             <input
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder="Enter your E-Mail Address"
-              className="w-full px-3 py-2 border-2 border-indigo-500 rounded-lg focus:outline-none focus:border-purple-700 my-2"
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              placeholder="Enter your password"
+              className="w-full p-3 my-2 border-2 border-indigo-500 rounded-lg focus:outline-none focus:border-indigo-800"
             />
           </p>
-          <p>
-            <label htmlFor="text" className="p-1">
-              Phone Number
-            </label>
-            <input
-              type="number"
-              value={phone}
-              onChange={(e) => setPhone(e.target.value)}
-              placeholder="Enter your Phone Number"
-              className="w-full px-3 py-2 border-2 border-indigo-500 rounded-lg focus:outline-none focus:border-purple-700 my-2"
-              inputMode="numeric"
-            />
-          </p>
-          <p>
-            <label htmlFor="text" className="p-1">
-              Location Where Lost
-            </label>
-            <input
-              type="text"
-              value={location}
-              onChange={(e) => setLocation(e.target.value)}
-              placeholder="Enter the Location Last Seen"
-              className="w-full px-3 py-2 border-2 border-indigo-500 rounded-lg focus:outline-none focus:border-purple-700 my-2"
-              inputMode="numeric"
-            />
-          </p>
-          <p>
-            <label htmlFor="text" className="p-1">
-              Date when Lost
-            </label>
-            <input
-              value={fdate}
-              onChange={(e) => setDate(e.target.value)}
-              className="w-full px-3 py-2 border-2 border-indigo-500 rounded-lg focus:outline-none focus:border-purple-700 my-2"
-              inputMode="numeric"
-              type="date"
-              name="begin"
-              placeholder="dd-mm-yyyy"
-              min="1997-01-01"
-              max="2099-12-31"
-            />
-          </p>
-          <p>
-            <label htmlFor="text" className="p-1">
-              Item Type
-            </label>
-            <input
-              type="text"
-              value={itemtype}
-              onChange={(e) => setItemtype(e.target.value)}
-              placeholder="Enter the category/type of the item(Book,keychain etc)"
-              className="w-full px-3 py-2 border-2 border-indigo-500 rounded-lg focus:outline-none focus:border-purple-700 my-2"
-              inputMode="numeric"
-            />
-          </p>
-          <div className="mb-4">
-            <label htmlFor="itemdescription" className="p-1 block">
-              Item Description
-            </label>
-            <textarea
-              id="itemdescription"
-              value={itemdescription}
-              onChange={(e) => setItemdescription(e.target.value)}
-              placeholder="Enter item description"
-              className="w-full px-3 py-2 border-2 border-indigo-500 rounded-lg focus:outline-none focus:border-purple-700"
-            />
-          </div>
-          <p>
-            <label htmlFor="text" className="p-1">
-              Lost Item Photo
-            </label>
-            <input
-              type="file"
-              value={itemtype}
-              onChange={(e) => setItemtype(e.target.value)}
-              placeholder="Enter the category/type of the item(Book,keychain etc)"
-              className="w-full px-3 py-2 border-2 border-indigo-500 rounded-lg focus:outline-none focus:border-purple-700 my-2"
-              inputMode="numeric"
-              accept="image/*"
-            />
-          </p>
-
-          {/* <Link href="/"> */}
-          <button
-            type="submit"
-            className="w-full p-2 my-2 bg-indigo-600 text-white rounded-lg hover:bg-purple-700 focus:outline-none focus:bg-purple-700"
-          >
-            Submit
-          </button>
-
+          {/* <Link href={"/home"}> */}
+            <button
+              type="submit"
+              className="w-full py-2 px-4 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 focus:outline-none focus:bg-purple-700 p-3 my-2"
+            >
+              Submit
+            </button>
           {/* </Link> */}
         </form>
-        <Link href={"/"}>
-          <div className="flex justify-center item-center font-medium text-xl hover:text-indigo-600">
-            Return to Homepage
-          </div>
+        <Link href = "/">
+          <div className="flex justify-center items-center hover:text-indigo-700 text-xl font-medium">Return to HomePage</div>
         </Link>
-        <div className="flex justify-center item-center">{message}</div>
-        {message === "Item registered successfully" && (
-          <Link href="/login">
-            <div className="flex justify-center item-center hover:text-purple-700">
-              Click to Login
-            </div>
+        <div className="flex justify-center items-center text">{message}</div>
+        {message === "Login Successful" && (
+          <Link href="/home">
+            <div className="flex justify-center item-center hover:text-indigo-500">Click to go further</div>
           </Link>
         )}
       </div>
@@ -189,4 +101,4 @@ const LostForm = () => {
   );
 };
 
-export default LostForm;
+export default LoginPage;
