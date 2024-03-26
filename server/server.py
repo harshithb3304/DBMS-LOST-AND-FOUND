@@ -55,7 +55,7 @@ def register1():
         phone = request.form.get('phone_no')
         rollno = request.form.get("roll_no")
 
-        data = db.student.find_one({"RollNo": rollno})
+        data = db.Student.find_one({"RollNo": rollno})
         print(data)
         if (data):
             return jsonify({"message": "Roll Number already exists", "user_id": str(user_id)})

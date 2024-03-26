@@ -30,7 +30,7 @@ const LoadingScreen = () => {
   return (
     <div className="loading-screen flex flex-col items-center justify-center p-10 m-10 mt-20">
       {showFirstText && (
-        <div className="falling-texts space-y-4 text-4xl text-indigo-800 font-bold">
+        <div className="falling-texts space-y-4 text-4xl text-white font-bold">
           <div className="falling-text text-6xl md:text-7xl lg:text-8xl">
             Welcome to IIITDM's
           </div>
