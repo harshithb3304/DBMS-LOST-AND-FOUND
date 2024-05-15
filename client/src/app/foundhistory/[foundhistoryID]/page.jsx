@@ -7,7 +7,7 @@ import FoundHistoryCard from '@/app/(components)/found_history_card';
 
 const LostItemsHistory = ({ params }) => {
   const [foundItemsHistory, setFoundItemsHistory] = useState([]);
-  
+  let filteredFoundItems = [];
   useEffect(() => {
     const fetchLostItems = async () => {
       try {
@@ -23,8 +23,12 @@ const LostItemsHistory = ({ params }) => {
     fetchLostItems();
   }, [params.foundhistoryID]);
 
-  const filteredFoundItems = foundItemsHistory.filter(item => item.RollNo === params.foundhistoryID);
-  console.log(filteredFoundItems)
+  if(params.foundhistoryID !== 'admin'){
+    filteredFoundItems = foundItemsHistory.filter(item => item.RollNo === params.foundhistoryID);}
+  else{
+    filteredFoundItems = foundItemsHistory;
+  }
+ 
 
   return (
     <div className=''>

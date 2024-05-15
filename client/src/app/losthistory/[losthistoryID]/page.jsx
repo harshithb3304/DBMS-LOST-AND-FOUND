@@ -6,7 +6,7 @@ import LostHistoryCard from '@/app/(components)/lost_history_card';
 
 const LostItemsHistory = ({ params }) => {
   const [lostItemsHistory, setLostItemsHistory] = useState([]);
-  
+  let filteredLostItems = []
   useEffect(() => {
     const fetchLostItems = async () => {
       try {
@@ -22,7 +22,13 @@ const LostItemsHistory = ({ params }) => {
     fetchLostItems();
   }, [params.losthistoryID]);
 
-  const filteredLostItems = lostItemsHistory.filter(item => item.RollNo === params.losthistoryID);
+  if(params.losthistoryID !== 'admin'){
+    filteredLostItems = lostItemsHistory.filter(item => item.RollNo === params.losthistoryID);
+  }
+  else {
+    filteredLostItems = lostItemsHistory;
+  }
+
   console.log(filteredLostItems)
   console.log(params)
   return (
