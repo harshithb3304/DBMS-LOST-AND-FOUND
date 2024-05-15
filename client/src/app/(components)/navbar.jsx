@@ -105,7 +105,7 @@ const Navbar = (props) => {
       {isOpen && (
         <div className="lg:hidden top-16 w-full">
           <div className="flex flex-col items-center mt-4">
-            <Link href={'/'}>
+            <Link href={'/home'}>
             <h1 className="text-white mb-2">HOME</h1>
             </Link>
             <Link href={'/lostitems'}>

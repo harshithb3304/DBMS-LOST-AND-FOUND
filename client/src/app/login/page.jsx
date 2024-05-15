@@ -28,7 +28,6 @@ const LoginPage = () => {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-
         try {
             const response = await fetch("http://127.0.0.1:8080/api/register", {
                 method: "POST",
