@@ -6,8 +6,7 @@ import Link from "next/link";
 
 
 const GetState = ( { params } ) => {
-  const [loading,setisloading] = useState(false)  
-
+  const [loading,setisloading] = useState(false);
   useEffect(() => {
     const fetchState = async () => {
       try {

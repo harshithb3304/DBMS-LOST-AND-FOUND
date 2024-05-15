@@ -314,13 +314,13 @@ def get_found_items():
 @app.route("/api/state", methods=["GET"])
 def states():
     global current_state
-    return  jsonify(current_state)
+    return jsonify(current_state)
 
 @app.route("/api/logout_state" , methods=["POST"])
 def states1():
     global current_state
     current_state=False
-    return  jsonify("Logged out")
+    return jsonify("Logged out")
 
 
 @app.route("/api/update", methods=["POST"])
