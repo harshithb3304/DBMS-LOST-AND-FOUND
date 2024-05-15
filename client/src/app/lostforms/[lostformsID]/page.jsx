@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import Link from "next/link";
+import Navbar from "@/app/(components)/navbar";
 
 const LostForm = ({params}) => {
   const [email, setEmail] = useState("");
@@ -84,7 +85,8 @@ const LostForm = ({params}) => {
 
 
   return (
-    <main className="min-h-screen flex items-center justify-center">
+    <main className="min-h-screen flex flex-col items-center justify-center">
+      <Navbar userID={params.lostformsID}/>
       <div className="p-8 bg-white rounded-xl mt-6 mb-6 shadow-md w-full max-w-sm md:max-w-md lg:max-w-md xl:max-w-md transform transition-transform duration-500">
         <div className="mb-10 text-center text-4xl text-indigo-600">
           LOST ITEMS FORMS
