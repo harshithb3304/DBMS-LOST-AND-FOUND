@@ -16,4 +16,4 @@ Requirements/Commands to be downloaded/executed in server directory:
 2. pip install flask_cors
 3. pip install pymongo
 4. python server.py (To run the flask server)
-5. Go to MongoDB Atlas and generate a new MongoDB Collection. Copy the URI and use it in server.py (MongoClient(URI))and to connect to MongoDB Compass.
+5. Go to MongoDB Atlas and generate a new MongoDB Collection. Copy the URI and use it in a env file.(MongoClient(URI))and to connect to MongoDB Compass.
