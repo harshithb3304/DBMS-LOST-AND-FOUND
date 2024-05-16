@@ -34,6 +34,7 @@ const FoundForm = ({params}) => {
           roll_no: rollno,
           location: location,
           fdate: fdate,
+          fdate: fdate,
           itemtype: itemtype,
           itemdescription: itemdescription,
           image: image_data

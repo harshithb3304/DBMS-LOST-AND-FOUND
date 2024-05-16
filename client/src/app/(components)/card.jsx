@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 const handleUpdate = async ({item}) => {
     try {
-        const finderRollNo = window.prompt("Enter the finder's Roll Number:");
+        const finderRollNo = window.prompt("Enter the finder's Roll Number:").toUpperCase();
 
         if (finderRollNo !== null) {
             const response = await fetch('http://127.0.0.1:8080/api/update', {
