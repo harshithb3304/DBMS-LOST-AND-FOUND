@@ -48,7 +48,7 @@ const Profile = ({ params }) => {
 					<h1 className='m-2 p-2'>LAST NAME : {array[2]}</h1>
 					<h1 className='m-2 p-2'>MIDDLE NAME : {array[3]}</h1>
 					<h1 className='m-2 p-2'>MOBILE NUMBER : {array[4]}</h1>
-					<h1 className='m-2 p-2'>ROLL NUMBER : {array[5]}</h1>
+					<h1 className='m-2 p-2'>ROLL NUMBER : {(array[5]!== undefined)?array[5].toUpperCase():""}</h1>
 				</div>
 			</div>
 		</main>
